@@ -1,0 +1,49 @@
+# Node modules
+node_modules/
+scripts/node_modules/
+
+# Environment variables
+.env
+.env.local
+
+# Output files (exclude all generated content)
+digests/*.html
+digests/*.json
+digests/*.md
+digests/temp/
+scripts/digests/*.html
+scripts/digests/*.json
+scripts/digests/*.md
+
+# Keep example outputs and documentation
+!digests/README.md
+!scripts/digests/README.md
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Backup files
+*.bak
+*-old.mjs
+*-backup.*
+
+# Test files
+scripts/test-*.mjs
+
+# Local settings
+.claude/settings.local.json
+
+# Keep important directories but ignore content
+!digests/.gitkeep
+!scripts/digests/.gitkeep

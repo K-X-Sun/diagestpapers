@@ -1,0 +1,108 @@
+{
+  "name": "digestpapers",
+  "description": "Academic Paper & Repository Digest Skill - Search, analyze and generate weekly reports for research papers and GitHub repositories with deduplication",
+  "author": "Claude AI",
+  "version": "2.0.0",
+  "platforms": ["claude-code", "openclaw"],
+  "parameters": [
+    {
+      "name": "topic",
+      "type": "string",
+      "required": true,
+      "description": "Research topic to search for"
+    },
+    {
+      "name": "source",
+      "type": "string",
+      "required": false,
+      "enum": ["all", "arxiv", "github", "blogs", "conferences", "pwc"],
+      "default": "all",
+      "description": "Data source to scrape"
+    },
+    {
+      "name": "count",
+      "type": "integer",
+      "required": false,
+      "default": 20,
+      "description": "Number of items to return per source"
+    },
+    {
+      "name": "phase",
+      "type": "integer",
+      "required": false,
+      "enum": [1, 2, 3],
+      "default": 1,
+      "description": "Execution phase: 1 (search), 2 (aggregate), 3 (merge)"
+    },
+    {
+      "name": "format",
+      "type": "string",
+      "required": false,
+      "enum": ["html", "markdown", "json"],
+      "default": "html",
+      "description": "Output format for the report"
+    },
+    {
+      "name": "deduplicate",
+      "type": "boolean",
+      "required": false,
+      "default": true,
+      "description": "Enable deduplication against history"
+    },
+    {
+      "name": "recent_only",
+      "type": "integer",
+      "required": false,
+      "default": 0,
+      "description": "Only keep items from last N days (0 = disabled)"
+    },
+    {
+      "name": "similarity",
+      "type": "float",
+      "required": false,
+      "default": 0.85,
+      "description": "Title similarity threshold for deduplication (0-1)"
+    }
+  ],
+  "command": "node scripts/auto-digest.mjs",
+  "workflow": [
+    "topic_extraction",
+    "multi_source_search",
+    "content_extraction",
+    "data_merging",
+    "deduplication",
+    "llm_filtering",
+    "report_generation"
+  ],
+  "requirements": {
+    "dependencies": ["nodejs >= 18.0.0", "cheerio", "playwright (optional)"],
+    "permissions": ["network_access", "file_system_write", "websearch", "webfetch"]
+  },
+  "files": {
+    "main": "scripts/auto-digest.mjs",
+    "deduplication": "scripts/deduplicate.mjs",
+    "report_generator": "scripts/generate-final-report.mjs",
+    "adapters": {
+      "websearch": "scripts/sources/websearch-adapter.mjs",
+      "webfetch": "scripts/sources/webfetch-adapter.mjs",
+      "playwright": "scripts/sources/playwright-adapter.mjs"
+    },
+    "data_files": {
+      "scraped_data": "digests/scraped-data.json",
+      "analysis_result": "digests/analysis-result.json",
+      "history": "digests/history.json",
+      "report_output": "digests/digest-*.html"
+    }
+  },
+  "capabilities": {
+    "web_scraping": {
+      "primary": "websearch/webfetch",
+      "fallback": "playwright"
+    },
+    "deduplication": true,
+    "llm_analysis": true,
+    "report_generation": true,
+    "multilingual": true,
+    "multi_source": true
+  }
+}

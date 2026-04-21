@@ -1,0 +1,23 @@
+{
+  "name": "digestpapers-scripts",
+  "version": "1.0.0",
+  "description": "Auto-digest scripts for research papers and GitHub repositories",
+  "main": "auto-digest.mjs",
+  "type": "module",
+  "scripts": {
+    "digest": "node auto-digest.mjs",
+    "report": "node generate-final-report.mjs"
+  },
+  "keywords": [
+    "arxiv",
+    "github",
+    "research",
+    "digest"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "playwright": "^1.40.0",
+    "cheerio": "^1.0.0"
+  }
+}

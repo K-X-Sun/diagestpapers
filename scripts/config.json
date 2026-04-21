@@ -1,0 +1,16 @@
+{
+  "search_topics": ["Machine Learning", "AI", "Deep Learning", "Autoresearch"],
+  "output": {
+    "output_path": "./digests/daily-digest.html"
+  },
+  "arxiv": {
+    "url": "https://arxiv.org/list/cs.AI/new",
+    "max_items": 50,
+    "timeout": 60000
+  },
+  "github": {
+    "url": "https://github.com/trending",
+    "max_items": 25,
+    "timeout": 30000
+  }
+}
