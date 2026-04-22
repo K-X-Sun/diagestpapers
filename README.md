@@ -2,7 +2,7 @@
 
 A comprehensive skill for searching, analyzing, and generating weekly reports for research papers and GitHub repositories.
 
-## 🎯 Features
+##  Features
 
 - **Multi-Source Search**: arXiv, GitHub, Papers With Code, Tech Blogs, Conferences
 - **Smart Deduplication**: URL matching, content fingerprinting, title similarity
@@ -10,7 +10,7 @@ A comprehensive skill for searching, analyzing, and generating weekly reports fo
 - **LLM-Powered Analysis**: Innovation, quality, credibility, relevance scoring
 - **Beautiful Reports**: Professional HTML reports with embedded styling
 
-## 🚀 Quick Start
+##  Quick Start
 
 ```bash
 # Install dependencies
@@ -69,7 +69,7 @@ node scripts/generate-final-report.mjs
 - Separate sections for papers/repos/articles
 - Saves to `digests/digest-<topic>-<date>.html`
 
-## 🎛️ Configuration
+## Configuration
 
 ### Basic Usage
 ```bash
@@ -105,7 +105,7 @@ node scripts/generate-final-report.mjs
 | `min_quality` | float | 0.5 | Min quality score |
 | `min_relevance` | float | 0.5 | Min relevance score |
 
-## 📁 Directory Structure
+## Directory Structure
 
 ```
 digestpapers/
@@ -158,7 +158,7 @@ node scripts/deduplicate.mjs --days 30 --similarity 0.85 --recent-only 7
 #   --recent-only <n>  Only keep items from last N days
 ```
 
-## 🎨 Report Output
+## Report Output
 
 ### HTML Report
 - Professional white theme with responsive design
@@ -195,7 +195,7 @@ node scripts/deduplicate.mjs --days 30 --similarity 0.85 --recent-only 7
 }
 ```
 
-## 🛠️ Troubleshooting
+## Troubleshooting
 
 ### WebSearch/WebFetch unavailable?
 The skill automatically falls back to Playwright scraping.
@@ -218,7 +218,7 @@ Increase count per source:
 /digestpapers "topic" --count 50  # Max 50 per source
 ```
 
-## 📦 Requirements
+## Requirements
 
 - Node.js >= 18.0.0
 - cheerio (for HTML parsing)
@@ -229,11 +229,11 @@ cd scripts
 npm install
 ```
 
-## 📄 License
+## License
 
 MIT
 
-## 🤝 Contributing
+## Contributing
 
 This skill integrates:
 - Multi-source web scraping (WebSearch/WebFetch + Playwright)
