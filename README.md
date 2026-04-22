@@ -21,7 +21,7 @@ npm install
 /digestpapers "autoresearch"
 ```
 
-## 📋 Workflow
+## Workflow
 
 ### Phase 1: Multi-Source Search
 ```bash
