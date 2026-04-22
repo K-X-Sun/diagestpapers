@@ -1,6 +1,6 @@
 ---
 name: digestpapers
-description: A standardized skill for searching, analyzing, and generating weekly reports for research papers and GitHub repositories.
+description: A standardized skill for searching, analyzing, and generating weekly reports for research papers, GitHub repositories, blogs etc.
 ---
 
 
